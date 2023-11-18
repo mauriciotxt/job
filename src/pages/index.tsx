@@ -27,6 +27,26 @@ function Root({
   googleClientId: string;
   googleClientSecret: string;
 }) {
+  // useEffect(() => {
+  //   const script = document.createElement("script");
+  //   script.src = "https://apis.google.com/js/api.js";
+  //   script.async = true;
+  //   script.onload = () => {
+  //     window.gapi.load("client:auth2", () => {
+  //       // The auth2 library is now loaded and ready to use.
+  //       const auth2 = window.gapi.auth2.init({
+  //         clientId: googleClientId,
+  //         scope: "",
+  //       });
+  //     });
+  //   };
+  //   document.body.appendChild(script);
+
+  //   return () => {
+  //     document.body.removeChild(script);
+  //   };
+  // }, []);
+
   const handleSuccess = (res: any) => {
     console.log({ res });
     return res;
