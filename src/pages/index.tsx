@@ -10,6 +10,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const googleClientId = process.env.GOOGLE_CLIENT_ID || "";
   const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET || "";
 
+  console.log({ googleClientId });
+
   return {
     props: {
       googleClientId,
