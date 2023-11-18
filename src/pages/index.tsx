@@ -25,7 +25,7 @@ function Root({
   googleClientId: string;
   googleClientSecret: string;
 }) {
-  const handleSuccess = (res) => {
+  const handleSuccess = (res: any) => {
     console.log({ res });
     return res;
   };

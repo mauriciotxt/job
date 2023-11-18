@@ -35,7 +35,7 @@ function Login({
   // // eslint-disable-next-line react-hooks/exhaustive-deps
   // }, [])
   
-  const handleSuccess = (res) => {
+  const handleSuccess = (res: any) => {
     console.log({res});
     return res;
   }
