@@ -1,10 +1,6 @@
 import { GetServerSideProps } from "next";
 import React from "react";
-import {
-  GoogleOAuthProvider,
-  GoogleLogin,
-  googleLogout,
-} from "@react-oauth/google";
+import { GoogleLogin, GoogleLogout,  } from "react-google-login";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const googleClientId = process.env.GOOGLE_CLIENT_ID || "";
@@ -51,18 +47,21 @@ function Root({
     console.log({ res });
     return res;
   };
+  
+  const handleFailure = (res: any) => {
+    console.log({ res });
+    return res;
+  };
 
   const handleError = () => {
     console.log("error");
   };
 
   return (
-    <GoogleOAuthProvider clientId={googleClientId}>
-      <div>
-        <GoogleLogin onSuccess={handleSuccess} onError={handleError} />
-        <button onClick={() => googleLogout()}>Google Logout</button>
-      </div>
-    </GoogleOAuthProvider>
+    <div>
+      <GoogleLogin onSuccess={(res) => handleSuccess(res)} clientId={googleClientId} />
+      <GoogleLogout onFailure={handleError} clientId={googleClientId}  />
+    </div>
   );
 }
 
