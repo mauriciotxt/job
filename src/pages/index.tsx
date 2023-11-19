@@ -53,14 +53,16 @@ function Root({
     return res;
   };
 
-  const handleError = () => {
-    console.log("error");
-  };
-
   return (
     <div>
-      <GoogleLogin onSuccess={(res) => handleSuccess(res)} clientId={googleClientId} />
-      <GoogleLogout onFailure={handleError} clientId={googleClientId}  />
+      <GoogleLogin
+        onSuccess={(res) => handleSuccess(res)}
+        onFailure={(res) => handleFailure(res)}
+        clientId={googleClientId}
+        cookiePolicy={"single_host_origin"}
+        isSignedIn={true}
+      />
+      <GoogleLogout clientId={googleClientId} />
     </div>
   );
 }
