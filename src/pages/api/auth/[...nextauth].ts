@@ -4,7 +4,7 @@ import GoogleProvider from "next-auth/providers/google";
 console.log({
   GOOGLE_ID: process.env?.GOOGLE_ID,
   GOOGLE_SECRET: process.env?.GOOGLE_SECRET,
-  SECRET: process.env.SECRET,
+  SECRET: process.env.NEXTAUTH_SECRET,
 });
 
 export const authOptions = {
@@ -16,4 +16,7 @@ export const authOptions = {
   ],
 };
 
-export default NextAuth(authOptions);
+export default NextAuth({
+  ...authOptions,
+  secret: process.env.NEXTAUTH_SECRET,
+});
