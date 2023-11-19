@@ -17,6 +17,7 @@ const Home = () => {
   return (
     <div>
       <h1>{status}</h1>
+      <h2>V1</h2>
       {status === "authenticated" ? (
         <>
           <LoginBanner />
