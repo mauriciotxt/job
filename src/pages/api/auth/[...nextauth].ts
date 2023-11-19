@@ -1,6 +1,11 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
+console.log({
+  GOOGLE_ID: process.env?.GOOGLE_ID,
+  GOOGLE_SECRET: process.env?.GOOGLE_SECRET,
+});
+
 export const authOptions = {
   providers: [
     GoogleProvider({
@@ -9,5 +14,7 @@ export const authOptions = {
     }),
   ],
 };
+
+
 
 export default NextAuth(authOptions);

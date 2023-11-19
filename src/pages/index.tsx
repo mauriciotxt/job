@@ -17,7 +17,14 @@ const Home = () => {
   return (
     <div>
       <h1>{status}</h1>
-      {loggedIn ? <Article /> : <LoginBanner />}
+      {status === "authenticated" ? (
+        <>
+          <LoginBanner />
+          <Article />{" "}
+        </>
+      ) : (
+        <LoginBanner />
+      )}
     </div>
   );
 };
